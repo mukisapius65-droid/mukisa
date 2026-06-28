@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukisa Pius | Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0b0f1a;
+            color: #e8e6e3;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---- NAV ---- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f0c27f, #fc5c7d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: #a8a6b0;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f0c27f;
+        }
+
+        /* ---- HERO ---- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 70px 0 50px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #f0c27f, #fc5c7d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: #a8a6b0;
+            max-width: 600px;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f0c27f, #fc5c7d);
+            color: #0b0f1a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(252, 92, 125, 0.35);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #f0c27f;
+            color: #f0c27f;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #f0c27f;
+            color: #0b0f1a;
+        }
+
+        /* ---- SECTION TITLES ---- */
+        section {
+            padding: 70px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .section-sub {
+            color: #a8a6b0;
+            margin-bottom: 40px;
+        }
+
+        /* ---- SKILLS ---- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 20px 12px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: #f0c27f;
+            transform: translateY(-4px);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #f0c27f;
+        }
+
+        .skill-card span {
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        /* ---- SERVICES ---- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 28px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #fc5c7d;
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 2.2rem;
+            color: #fc5c7d;
+            margin-bottom: 14px;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: #a8a6b0;
+        }
+
+        /* ---- PROJECTS ---- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #f0c27f;
+        }
+
+        .project-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .project-card p {
+            font-size: 0.85rem;
+            color: #a8a6b0;
+        }
+
+        .project-card a {
+            color: #f0c27f;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 12px;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---- CONTACT ---- */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+
+        .contact-item i {
+            color: #f0c27f;
+            font-size: 1.3rem;
+            width: 28px;
+        }
+
+        .contact-item a {
+            color: #e8e6e3;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #f0c27f;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            color: #6a6a7a;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #f0c27f;
+            text-decoration: none;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 700px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- NAV -->
+        <nav>
+            <div class="logo">Mukisa.dev</div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <h1>Hi, I'm <span>Mukisa Pius</span></h1>
+            <p>I build websites, landing pages, and digital tools — no degree, no BS, just code that works. I help small businesses get online and stay there.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Work with me</a>
+                <a href="#projects" class="btn btn-outline">See my work</a>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <h2 class="section-title">What I work with</h2>
+            <p class="section-sub">Tools & technologies I use daily</p>
+            <div class="skills-grid">
+                <div class="skill-card"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                <div class="skill-card"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                <div class="skill-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                <div class="skill-card"><i class="fab fa-react"></i><span>React</span></div>
+                <div class="skill-card"><i class="fab fa-node"></i><span>Node.js</span></div>
+                <div class="skill-card"><i class="fas fa-fire"></i><span>Firebase</span></div>
+                <div class="skill-card"><i class="fas fa-cloud"></i><span>Vercel</span></div>
+                <div class="skill-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <h2 class="section-title">What I offer</h2>
+            <p class="section-sub">No fluff — just solutions that work</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Landing Pages</h3>
+                    <p>Fast, mobile‑friendly pages that turn visitors into customers.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-store"></i>
+                    <h3>Business Websites</h3>
+                    <p>Simple, professional websites for shops, restaurants, and services.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Simple Bots & Tools</h3>
+                    <p>WhatsApp bots, contact forms, and small automation tools.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>Fixes & Updates</h3>
+                    <p>Need to fix, update, or improve an existing site? I can help.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <h2 class="section-title">Live projects</h2>
+            <p class="section-sub">Here’s what I’ve built recently</p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h4>Buddu Coffee</h4>
+                    <p>Landing page for a coffee growers association — built with HTML, CSS, and deployed on Vercel.</p>
+                    <a href="https://buddu-coffee.vercel.app" target="_blank">View project →</a>
+                </div>
+                <div class="project-card">
+                    <h4>Lugascript</h4>
+                    <p>A programming language in Luganda — interpreter written in pure JavaScript.</p>
+                    <a href="https://lugascript.vercel.app/" target="_blank">View project →</a>
+                </div>
+                <div class="project-card">
+                    <h4>Coming soon</h4>
+                    <p>Your next project could be here. Let’s build something together.</p>
+                    <a href="#contact">Let’s talk →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2 class="section-title">Let’s work together</h2>
+            <p class="section-sub">No contracts. No pressure. Just honest work.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+256703055329">+256 703 055 329</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:mukisapius65@gmail.com">mukisapius65@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/256703055329" target="_blank">WhatsApp</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/mukisapius65-droid" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <p style="margin-top: 30px; color: #a8a6b0; font-size: 0.9rem;">
+                👉 <strong>Free trial:</strong> I'll build a landing page for you — pay only if you like it.
+            </p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            &copy; 2025 Mukisa Pius — built with <span style="color: #fc5c7d;">❤</span> in Uganda
+        </footer>
+
+    </div>
+
+</body>
+</html>
